@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?Bhaijaan+2&family=Tajawal:wght@300&display=swap");
+
+.products_slider .splide__pagination {
+  display: none !important;
+}
+.products_slider .splide__arrow--prev {
+  left: -25px !important;
+}
+.products_slider .splide__arrow--next {
+  right: -25px !important;
+}
+.products_slider .splide__arrow svg,
+.products_slider .splide__arrow svg:hover {
+  fill: #105a33;
+}
+
+.product-images-slider .splide__arrow svg,
+.single-product-small-screen .splide__arrow svg {
+  fill: #105a33 !important ;
+}

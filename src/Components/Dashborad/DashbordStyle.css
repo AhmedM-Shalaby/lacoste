@@ -1,0 +1,13 @@
+/* .css-1xif2b4-MuiPopper-root-MuiDataGrid-menu .MuiDataGrid-menuList {
+  flex-direction: column;
+} */
+
+.MuiTabs-flexContainer.css-heg063-MuiTabs-flexContainer {
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  span.MuiTabs-indicator.css-1aquho2-MuiTabs-indicator {
+    display: none;
+  }
+}

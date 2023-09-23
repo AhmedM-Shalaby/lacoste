@@ -1,0 +1,30 @@
+.ListNav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ListNav div {
+  left: 0 !important;
+  width: 100%;
+  padding: 10px;
+  overflow: auto !important;
+}
+
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+  width: 60%;
+  background-color: #979797;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+  align-items: flex-start;
+}
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation0.MuiAccordion-root.css-1fjvggn-MuiPaper-root-MuiAccordion-root {
+  border: none;
+  padding: 5px 0;
+}
+
+div#panel1d-header {
+  background-color: #bfbfbf;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}

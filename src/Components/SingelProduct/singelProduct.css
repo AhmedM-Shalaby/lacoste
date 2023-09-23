@@ -1,0 +1,20 @@
+li.MuiTypography-root.MuiTypography-body1.active.css-y0nxd5-MuiTypography-root.active {
+  border: 2px solid #105a33;
+  padding: 2px;
+  border-radius: 10px;
+  filter: brightness(1);
+}
+
+li.MuiTypography-root.MuiTypography-body1.css-y0nxd5-MuiTypography-root {
+  filter: brightness(0.5);
+}
+
+@keyframes myAnim {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
