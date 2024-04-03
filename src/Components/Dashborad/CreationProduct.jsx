@@ -27,7 +27,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import axios from "axios";
 import { UploadData } from "../../Hooks/useUploadData";
 import { useDispatch } from "react-redux";
-import { addProduct, updataProduct } from "../../Store/Slices/Products";
+import { addProduct } from "../../Store/Slices/Products";
 import Swal from "sweetalert2";
 const VisuallyHiddenInput = styled("input")({
   // input file style

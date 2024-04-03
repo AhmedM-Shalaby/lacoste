@@ -29,7 +29,7 @@ export default function CartShop({ item }) {
         borderRadius: "10px",
         padding: "10px",
         position: "relative",
-        m: "20px 0",
+        mb: "20px",
         backgroundColor: "#fff",
       }}
     >
@@ -61,7 +61,7 @@ export default function CartShop({ item }) {
             alignItems: "center",
           }}
         >
-          total Product:
+          total pieces :
           <Box>
             <IconButton
               variant="contained"
@@ -81,7 +81,6 @@ export default function CartShop({ item }) {
               <IndeterminateCheckBoxIcon />
             </IconButton>
           </Box>{" "}
-          pieces
         </Box>
 
         <Typography

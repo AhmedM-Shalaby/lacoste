@@ -7,6 +7,7 @@ import MyButtons from "../Buttons/MyButtons";
 import { useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 import Error from "../../Pages/Error";
+import { useNavigate } from "react-router-dom";
 export default function ConfigProducts() {
   const products = useSelector((state) => state.data.products);
   const isLoading = useSelector((state) => state.data.isLoading);
@@ -41,9 +42,14 @@ export default function ConfigProducts() {
     },
   ];
   const PerPage = [5, 10, 20, 25, 50];
+  const navigate = useNavigate();
   return (
     <>
-      <MyButtons link={"/addProducts"} context={"Add Product"} mb={"20px"} />
+      <MyButtons
+        click={() => navigate("/addProducts")}
+        context={"Add Product"}
+        mb={"20px"}
+      />
       <DataGridTable columns={columns} rows={products} PerPage={PerPage} />
     </>
   );

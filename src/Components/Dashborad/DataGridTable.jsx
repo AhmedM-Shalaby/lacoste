@@ -21,7 +21,7 @@ export default function DataGridTable({ columns, rows, PerPage, setRow }) {
           },
         }}
         pageSizeOptions={PerPage}
-        onCellEditStart={(params) => setRow(params)}
+        onCellEditStop={(params) => setRow(params)}
       />
     </Box>
   );

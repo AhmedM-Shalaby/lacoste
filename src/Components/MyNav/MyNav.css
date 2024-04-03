@@ -28,3 +28,10 @@ div#panel1d-header {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+
+.StyleItem {
+  display: block;
+  padding: 10px 0;
+  font-size: 12px;
+  font-weight: 700;
+}

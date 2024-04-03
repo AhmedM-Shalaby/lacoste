@@ -1,5 +1,3 @@
-import MyNav from "./Components/MyNav/MyNav";
-import { Footer } from "./Pages";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
@@ -11,16 +9,20 @@ import { ToastContainer } from "react-toastify";
 import { baseUrl } from "./Api/httpService";
 import { GetData } from "./Store/Slices/Products";
 import AppRoutes from "./Components/Router/Router";
+import { GetNav } from "./Store/Slices/ConigPages";
+import MyNav from "./Components/MyNav/MyNav";
+import { Footer } from "./Pages";
 
 function App() {
   const cart = useSelector((state) => state.shopCart.cart);
   const isAuth = useSelector((state) => state.auth.isAuth);
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
-  const url = `${baseUrl}/products`;
+  const url = `${baseUrl}`;
 
   useEffect(() => {
-    dispatch(GetData(url));
+    dispatch(GetData(`${url}/products`));
+    dispatch(GetNav(`${url}/categoriesNav`));
   }, [url]);
   useEffect(() => {
     if (isAuth) {

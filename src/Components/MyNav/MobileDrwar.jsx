@@ -6,7 +6,7 @@ import MyAccordion from "./MyAccoordion";
 import { Avatar, Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function MobileDrawer({ data }) {
+export default function MobileDrawer() {
   const [state, setState] = React.useState({
     left: false,
   });
@@ -59,7 +59,7 @@ export default function MobileDrawer({ data }) {
                 </Box>
               </Link>
             </Box>
-            <MyAccordion data={data} />
+            <MyAccordion />
           </Drawer>
         </React.Fragment>
       ))}

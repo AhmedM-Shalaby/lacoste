@@ -75,11 +75,3 @@ export default function Shop() {
     </Container>
   );
 }
-
-// const url = `${baseUrl}/products?categoryType=${catType.toLowerCase()}&category=${category.trim()}${
-//   sub ? `&sub=${sub.split(" ").join("")} ` : ""
-// }`;
-// const [data] = GetData(url);
-// if (data.length == 0) {
-//   navigate("/");
-// }

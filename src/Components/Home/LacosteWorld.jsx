@@ -4,13 +4,16 @@ import { headingSectionStyle } from "../../Layout/PublicStyle";
 import MyButtons from "../Buttons/MyButtons";
 import { GetData } from "../../Hooks/HookApi";
 import Loading from "../Loading/Loading";
+import { useNavigate } from "react-router-dom";
 
 export default function LacosteWorld() {
   const url = `${baseUrl}/LacosteWorld`;
+  const navigate = useNavigate();
   const [data, isLoad] = GetData(url);
   if (isLoad) {
     return <Loading />;
   }
+
   return (
     <Box>
       <Grid container spacing={6}>
@@ -30,7 +33,10 @@ export default function LacosteWorld() {
               >
                 {item.text}
               </Typography>
-              <MyButtons link={item.category} context={item.btn_text} />
+              <MyButtons
+                click={() => navigate(item.category)}
+                context={item.btn_text}
+              />
             </Box>
           </Grid>
         ))}

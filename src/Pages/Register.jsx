@@ -1,18 +1,18 @@
 import React from "react";
 import Profile from "../Components/Profile/Profile";
-import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { Box, Grid, Stack, TextField, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { registerSchema } from "../Models/ValidationSchema";
 import { UploadData } from "../Hooks/useUploadData";
 import { baseUrl } from "../Api/httpService";
-import { ButtonStyle } from "../Layout/PublicStyle";
+import { mainColor } from "../Layout/PublicStyle";
 import axios from "axios";
 import { toast } from "react-toastify";
+import MyButtons from "../Components/Buttons/MyButtons";
 
 export default function Register() {
   const navigate = useNavigate();
-  const url = `${baseUrl}/users`;
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -51,6 +51,7 @@ export default function Register() {
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     formik;
+
   return (
     <Profile>
       <Stack
@@ -67,7 +68,7 @@ export default function Register() {
             borderBottom={"2px solid #333"}
             pb={2}
           >
-            Refister
+            Register
           </Typography>
           <Grid container spacing={4}>
             <Grid
@@ -174,22 +175,16 @@ export default function Register() {
                     alignItems: "center",
                   }}
                 >
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    size="small"
-                    sx={{ ...ButtonStyle }}
-                  >
-                    {" "}
-                    Submit
-                  </Button>
-                  <Button
-                    variant="contained"
-                    size="small"
-                    sx={{ ...ButtonStyle }}
-                  >
-                    <Link to={"/login"}>I Have Account</Link>
-                  </Button>
+                  <MyButtons
+                    context={"Submit"}
+                    state={"submit"}
+                    colorVainat={mainColor}
+                  />
+                  <MyButtons
+                    context={" I Have Account "}
+                    click={() => navigate("/login")}
+                    colorVainat={mainColor}
+                  />
                 </Box>
               </Box>
             </Grid>

@@ -1,1 +1,1 @@
-export const baseUrl = "https://lacoste-data.onrender.com/api";
+export const baseUrl = "https://lacoste-data.onrender.com";

@@ -3,27 +3,23 @@ import {
   Avatar,
   Badge,
   Box,
-  Button,
   Stack,
   Toolbar,
   Typography,
 } from "@mui/material";
 import CategoriesMenu from "./CategoryMenu";
-import { baseUrl } from "../../Api/httpService";
-import { GetData } from "../../Hooks/HookApi";
 import { Link, useNavigate } from "react-router-dom";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MobileDrawer from "./MobileDrwar";
 import { useDispatch, useSelector } from "react-redux";
-import { ButtonStyle } from "../../Layout/PublicStyle";
 import { logout } from "../../Store/Slices/Auth";
 import Swal from "sweetalert2";
+import MyButtons from "../Buttons/MyButtons";
 export default function MyNav() {
-  const url = `${baseUrl}/categoriesNav`;
+  const data = useSelector((state) => state.Nav.dataPages);
   const navigate = useNavigate();
-  const [data] = GetData(url);
   const isAuth = useSelector((state) => state.auth.isAuth);
   const role = useSelector((state) => state.auth.role);
   const totalItems = useSelector((state) => state.shopCart.totalItems);
@@ -104,14 +100,7 @@ export default function MyNav() {
           {isAuth ? (
             <LogoutIcon sx={{ cursor: "pointer" }} onClick={HandelLogout} />
           ) : (
-            <Button
-              variant="contained"
-              size="small"
-              sx={{ ...ButtonStyle }}
-              onClick={() => navigate("login")}
-            >
-              login
-            </Button>
+            <MyButtons context={"login"} click={() => navigate("login")} />
           )}
           <Badge badgeContent={isAuth ? totalItems : 0} color="success">
             <LocalMallOutlinedIcon
@@ -120,7 +109,7 @@ export default function MyNav() {
             />
           </Badge>
           <Box sx={{ display: { xs: "block", md: "none" } }}>
-            <MobileDrawer data={data} />
+            <MobileDrawer />
           </Box>
         </Box>
       </Toolbar>

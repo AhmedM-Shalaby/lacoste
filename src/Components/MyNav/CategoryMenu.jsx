@@ -6,8 +6,11 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Link } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import "./MyNav.css";
+import { useSelector } from "react-redux";
 
 export default function CategoriesMenu({ item }) {
+  const isLoad = useSelector((state) => state.Nav.isLoad);
+  console.log(isLoad);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -16,6 +19,7 @@ export default function CategoriesMenu({ item }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <Box>
       <Button
@@ -62,19 +66,13 @@ export default function CategoriesMenu({ item }) {
             <Typography component={"p"}>
               {LinkCat.sub.map((LinkSub) => {
                 return (
-                  <Typography
+                  <Link
                     key={LinkSub}
-                    component={"p"}
-                    sx={{
-                      padding: "10px 0",
-                      fontSize: "12px",
-                      fontWeight: "300",
-                    }}
+                    className="StyleItem"
+                    to={`/${item.name}/${LinkCat.name}/${LinkSub}`}
                   >
-                    <Link to={`/${item.name}/${LinkCat.name}/${LinkSub}`}>
-                      {LinkSub}
-                    </Link>
-                  </Typography>
+                    {LinkSub}
+                  </Link>
                 );
               })}
             </Typography>

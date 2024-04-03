@@ -5,6 +5,7 @@ export const headingSectionStyle = {
   color: "#292929",
   marginBottom: "20px",
 };
+export const mainColor = "#105a33";
 
 export const HeadFooter = {
   fontSize: "14px",

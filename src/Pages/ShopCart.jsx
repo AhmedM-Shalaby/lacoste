@@ -7,29 +7,19 @@ import { Link } from "react-router-dom";
 import { removeAll } from "../Store/Slices/Cart";
 import { styleCartText } from "../Layout/PublicStyle";
 import Swal from "sweetalert2";
+import { useScroll, motion } from "framer-motion";
 
 export default function ShopCart() {
+  const parent = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: parent,
+    offset: ["end end", "start start"],
+  });
   const cart = useSelector((state) => state.shopCart.cart);
   const totalItems = useSelector((state) => state.shopCart.totalItems);
   const totalPrice = useSelector((state) => state.shopCart.totalPrice);
   const dispatch = useDispatch();
   const Taxes = totalItems > 3 ? 0 : 500;
-  // const getHeight = useRef();
-  // const getelement = useRef();
-  // const [heightColl, setHeightColl] = useState(0);
-
-  // useEffect(() => {
-  //   window.onscroll = () => {
-  //     const height =
-  //       getHeight?.current.clientHeight -
-  //       getHeight?.current.offsetTop -
-  //       getelement?.current.clientHeight;
-  //     // console.log(height);
-  //     console.log(getelement?.current.clientHeight);
-  //     setHeightColl(window.scrollY >= height ? height + 85 : window.scrollY);
-  //   };
-  // }, [window.scrollY]);
-
   const handelRemoveAll = () => {
     dispatch(removeAll());
   };
@@ -38,8 +28,16 @@ export default function ShopCart() {
       title: "Success Check Out , Look at the Email",
       icon: "success",
     });
-    // dispatch(removeAll());
+    dispatch(removeAll());
   };
+
+  console.log(scrollYProgress);
+  // useEffect(() => {
+  //   // console.log(parent?.current?.getBoundingClientRect());
+  //   // console.log(child?.current?.getBoundingClientRect());
+  //   console.log(parent?.current);
+  //   console.log(child.current);
+  // }, [child]);
   return (
     <Stack sx={{ mt: "80px", backgroundColor: "#f1f1f1" }}>
       <SectionHeading nameHeading={"Cart Shopping"}>
@@ -55,21 +53,14 @@ export default function ShopCart() {
             )}
           </Grid>
           {totalItems > 0 ? (
-            <Grid item md={4}>
+            <Grid item xs={12} md={4} ref={parent}>
               <Stack
                 sx={{
-                  position: "relative",
-                  m: "20px 0",
-                  mx: "auto",
                   transition: "all 0.3s",
                 }}
               >
                 <Box
-                  // ref={getelement}
                   sx={{
-                    // position: "absolute",
-                    width: "calc(100% - 20px)",
-                    // top: heightColl + "px",
                     backgroundColor: "#fff",
                     padding: "20px",
                     border: "1px solid #ddd",
@@ -80,7 +71,7 @@ export default function ShopCart() {
                     sx={{
                       display: "flex",
                       justifyContent: "space-between",
-                      maxWidth: "600px",
+                      maxWidth: "1000px",
                       mb: "20px",
                     }}
                   >

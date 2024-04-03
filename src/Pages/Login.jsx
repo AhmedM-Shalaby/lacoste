@@ -1,18 +1,20 @@
-import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
+import { Box, Grid, Stack, TextField, Typography } from "@mui/material";
 import Profile from "../Components/Profile/Profile";
 import { useFormik } from "formik";
 import { loginSchema } from "../Models/ValidationSchema";
-import { ButtonStyle } from "../Layout/PublicStyle";
-import { Link } from "react-router-dom";
+import { mainColor } from "../Layout/PublicStyle";
 import { baseUrl } from "../Api/httpService";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../Store/Slices/Auth";
 import { getCartData } from "../Store/Slices/Cart";
 import { toast } from "react-toastify";
+import MyButtons from "../Components/Buttons/MyButtons";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -119,15 +121,11 @@ export default function LoginPage() {
                   }
                   error={Boolean(errors.password) && touched.password}
                 />
-                <Button
-                  type={"submit"}
-                  variant="contained"
-                  size="small"
-                  sx={{ ...ButtonStyle }}
-                >
-                  {" "}
-                  login{" "}
-                </Button>
+                <MyButtons
+                  context={"login"}
+                  state={"submit"}
+                  colorVainat={mainColor}
+                />
               </Box>
             </Grid>
             <Grid item sm={6} mt={4}>
@@ -145,9 +143,11 @@ export default function LoginPage() {
                 your personal details, benefit from exclusive offers and more.
                 Follow the next quick steps to set up your account today
               </Typography>
-              <Button variant="contained" size="small" sx={{ ...ButtonStyle }}>
-                <Link to={"/Register"}>Create New Account</Link>
-              </Button>
+              <MyButtons
+                context={"Create New Account"}
+                click={() => navigate("/Register")}
+                colorVainat={mainColor}
+              />
             </Grid>
           </Grid>
         </Box>
