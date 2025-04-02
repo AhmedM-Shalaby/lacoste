@@ -16,8 +16,6 @@ export default function Dashboard() {
           margin: "70px 0 ",
           padding: "100px 0px ",
           backgroundImage: `url(${backgroundDashboradUrl})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "center",
           textAlign: "center",
         }}
       >

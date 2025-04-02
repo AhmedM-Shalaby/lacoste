@@ -7,7 +7,6 @@ import Box from "@mui/material/Box";
 import ConfigProducts from "./ConfigProducts";
 import "./DashbordStyle.css";
 import ConifgUser from "./ConifgUser";
-import ConfigPages from "./ConfigPages";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,7 +60,6 @@ export default function MyTabs() {
         >
           <Tab label="Products" {...a11yProps(0)} />
           <Tab label="Configuration User" {...a11yProps(1)} />
-          <Tab label="Configuration Pages" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
@@ -69,9 +67,6 @@ export default function MyTabs() {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <ConifgUser />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        <ConfigPages />
       </CustomTabPanel>
     </Box>
   );

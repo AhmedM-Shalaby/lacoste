@@ -2,7 +2,6 @@ import {
   Box,
   Container,
   Grid,
-  Input,
   Stack,
   TextField,
   Typography,
@@ -19,7 +18,7 @@ export default function Footer() {
         backgroundColor: "#d9d9d9",
         padding: "60px 20px",
       }}
-      maxWidth="xl"
+      maxWidth="full"
     >
       <Stack>
         <Grid container spacing={4} justifyContent={"center"}>
