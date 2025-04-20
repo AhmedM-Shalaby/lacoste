@@ -57,6 +57,8 @@ export default function ShopCart() {
               <Stack
                 sx={{
                   transition: "all 0.3s",
+                  position: "sticky",
+                  top: "10%",
                 }}
               >
                 <Box

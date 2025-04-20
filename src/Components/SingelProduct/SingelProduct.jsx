@@ -81,55 +81,62 @@ export default function SingelProduct() {
           </Stack>
         </Grid>
         <Grid item xs={12} sm={4}>
-          {product.sale && product.sale && (
-            <Typography
-              component={"span"}
-              sx={{
-                backgroundColor: "#004526",
-                color: "#fff",
-                width: "fit-content",
-                padding: "2px",
-                borderRadius: "5px",
-                fontSize: "12px",
-              }}
-            >
-              {product.PercentSale} % off
-            </Typography>
-          )}
-          <Typography
-            component={"h1"}
-            sx={{ ...headingSectionStyle, fontSize: "24px", mt: "30px" }}
-          >
-            {product.title}
-          </Typography>
-          <Typography
-            component={"p"}
-            sx={{ fontSize: "18px", fontWeight: "700", mb: "20px" }}
-          >
-            Price : {product.price} Egp
-          </Typography>
-          {product.sale && (
-            <Typography
-              component={"del"}
-              sx={{
-                fontWeight: "600",
-                color: "#c8c8c8",
-                display: "block",
-                mb: "20px",
-              }}
-            >
-              {product.priceSale} EGP
-            </Typography>
-          )}
-
-          <MyButtons
-            mb={"20px"}
-            click={() => {
-              isAuth ? HandelAddProduct() : navigate("/login");
+          <Box
+            sx={{
+              position: "sticky",
+              top: "10%",
             }}
-            colorVainat="#105a33"
-            context={" Add To Cart "}
-          />
+          >
+            {product.sale && product.sale && (
+              <Typography
+                component={"span"}
+                sx={{
+                  backgroundColor: "#004526",
+                  color: "#fff",
+                  width: "fit-content",
+                  padding: "2px",
+                  borderRadius: "5px",
+                  fontSize: "12px",
+                }}
+              >
+                {product.PercentSale} % off
+              </Typography>
+            )}
+            <Typography
+              component={"h1"}
+              sx={{ ...headingSectionStyle, fontSize: "24px", mt: "30px" }}
+            >
+              {product.title}
+            </Typography>
+            <Typography
+              component={"p"}
+              sx={{ fontSize: "18px", fontWeight: "700", mb: "20px" }}
+            >
+              Price : {product.price} Egp
+            </Typography>
+            {product.sale && (
+              <Typography
+                component={"del"}
+                sx={{
+                  fontWeight: "600",
+                  color: "#c8c8c8",
+                  display: "block",
+                  mb: "20px",
+                }}
+              >
+                {product.priceSale} EGP
+              </Typography>
+            )}
+
+            <MyButtons
+              mb={"20px"}
+              click={() => {
+                isAuth ? HandelAddProduct() : navigate("/login");
+              }}
+              colorVainat="#105a33"
+              context={" Add To Cart "}
+            />
+          </Box>
         </Grid>
       </Grid>
       <Slider />
